@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-green-600 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
+            <div class="space-x-4">
+                <a href="/" class="hover:underline">Home</a>
+                <a href="/app" class="hover:underline">App</a>
+                <a href="/about" class="hover:underline">About</a>
+                <a href="/features" class="hover:underline">Features</a>
+                <a href="/guide" class="hover:underline">Guide</a>
+                <a href="/contact" class="hover:underline font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+                <form id="contactForm">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Name</label>
+                        <input type="text" id="name" class="w-full border rounded px-3 py-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="email" class="w-full border rounded px-3 py-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full border rounded px-3 py-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Message</label>
+                        <textarea id="message" class="w-full border rounded px-3 py-2" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded font-semibold hover:bg-green-700 transition">
+                        Send Message
+                    </button>
+                </form>
+                <div id="formMessage" class="mt-4 hidden"></div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-4">Other Ways to Reach Us</h3>
+                
+                <div class="mb-6">
+                    <h4 class="font-semibold text-lg mb-2">Support</h4>
+                    <p class="text-gray-700">
+                        For technical support or questions about using the platform, 
+                        please fill out the contact form.
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold text-lg mb-2">Partnerships</h4>
+                    <p class="text-gray-700">
+                        Interested in partnering with BloomNet? We'd love to hear from you 
+                        about collaboration opportunities.
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold text-lg mb-2">Contribute</h4>
+                    <p class="text-gray-700">
+                        BloomNet is an open-source project. Visit our GitHub repository 
+                        to contribute code or report issues.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-2">Community</h4>
+                    <p class="text-gray-700">
+                        Join our community of donors, recipients, and volunteers working 
+                        together to fight hunger and reduce food waste.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
+        </div>
+    </footer>
+
+    <script src="/js/contact.js"></script>
+</body>
+</html>

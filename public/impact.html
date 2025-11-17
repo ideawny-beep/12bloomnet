@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact - BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-green-600 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
+            <div class="space-x-4">
+                <a href="/" class="hover:underline">Home</a>
+                <a href="/app" class="hover:underline">App</a>
+                <a href="/about" class="hover:underline">About</a>
+                <a href="/features" class="hover:underline">Features</a>
+                <a href="/guide" class="hover:underline">Guide</a>
+                <a href="/impact" class="hover:underline font-semibold">Impact</a>
+                <a href="/contact" class="hover:underline">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold mb-6">Our Impact</h2>
+        
+        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+            <h3 class="text-2xl font-semibold mb-6 text-center">Platform Statistics</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-green-50 rounded-lg">
+                    <div class="text-4xl font-bold text-green-600 mb-2" id="statMeals">0</div>
+                    <div class="text-sm text-gray-600">Meals Redistributed</div>
+                </div>
+                <div class="text-center p-6 bg-blue-50 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-2" id="statTime">0</div>
+                    <div class="text-sm text-gray-600">Avg Hours to Pickup</div>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-lg">
+                    <div class="text-4xl font-bold text-purple-600 mb-2" id="statDonors">0</div>
+                    <div class="text-sm text-gray-600">Repeat Donors</div>
+                </div>
+                <div class="text-center p-6 bg-orange-50 rounded-lg">
+                    <div class="text-4xl font-bold text-orange-600 mb-2" id="statUsers">0</div>
+                    <div class="text-sm text-gray-600">Active Users</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-4">Environmental Impact</h3>
+                <p class="text-gray-700 mb-4">
+                    Every meal redistributed through BloomNet helps reduce food waste and its environmental impact. 
+                    Food waste in landfills produces methane, a potent greenhouse gas.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Reduced methane emissions from landfills</li>
+                    <li>Conservation of resources used in food production</li>
+                    <li>Lower carbon footprint from waste transportation</li>
+                    <li>Promotion of sustainable food systems</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-4">Social Impact</h3>
+                <p class="text-gray-700 mb-4">
+                    Beyond feeding communities, BloomNet strengthens social bonds and community resilience 
+                    by connecting different organizations and individuals.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Alleviating food insecurity in communities</li>
+                    <li>Supporting shelters and NGOs</li>
+                    <li>Building networks of care and support</li>
+                    <li>Empowering communities to help each other</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h3 class="text-2xl font-semibold mb-4">Success Stories</h3>
+            <div class="space-y-6">
+                <div class="border-l-4 border-green-600 pl-4">
+                    <p class="text-gray-700 italic">
+                        "BloomNet has transformed how we coordinate food donations. We now receive fresh meals 
+                        daily instead of going days without adequate food supplies."
+                    </p>
+                    <p class="text-sm text-gray-500 mt-2">- Local Shelter Director</p>
+                </div>
+                <div class="border-l-4 border-green-600 pl-4">
+                    <p class="text-gray-700 italic">
+                        "As a restaurant owner, I felt terrible throwing away perfectly good food. BloomNet 
+                        makes it easy to ensure nothing goes to waste while helping our community."
+                    </p>
+                    <p class="text-sm text-gray-500 mt-2">- Restaurant Owner</p>
+                </div>
+                <div class="border-l-4 border-green-600 pl-4">
+                    <p class="text-gray-700 italic">
+                        "The real-time matching feature is incredible. We can respond quickly to food availability 
+                        and ensure our clients receive fresh, nutritious meals."
+                    </p>
+                    <p class="text-sm text-gray-500 mt-2">- NGO Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadStats() {
+            try {
+                const res = await fetch('/api/stats');
+                const stats = await res.json();
+                
+                document.getElementById('statMeals').textContent = stats.mealsRedistributed;
+                document.getElementById('statTime').textContent = stats.avgTimeToPickup.toFixed(1);
+                document.getElementById('statDonors').textContent = stats.repeatDonors;
+                document.getElementById('statUsers').textContent = stats.activeUsers;
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+        loadStats();
+        setInterval(loadStats, 10000);
+    </script>
+</body>
+</html>
