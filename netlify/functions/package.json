@@ -1,0 +1,9 @@
+{
+  "name": "bloomnet-functions",
+  "version": "1.0.0",
+  "description": "Netlify serverless functions for BloomNet",
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "uuid": "^9.0.1"
+  }
+}
