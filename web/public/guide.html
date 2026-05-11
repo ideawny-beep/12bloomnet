@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redistribution Guide — BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#2d8659', dark: '#1f5d3f', light: '#3da372' },
+                        secondary: { DEFAULT: '#f4a261', dark: '#e76f51' },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <!-- Navigation -->
+    <nav class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                        <span class="text-lg">🌱</span>
+                    </div>
+                    <a href="index.html" class="text-xl font-semibold text-primary">BloomNet</a>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="guide.html" class="text-primary font-semibold">Guide</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+                    <a href="app.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all">Get Started</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">☰</button>
+            </div>
+            <div class="hidden md:hidden mt-4 space-y-2" id="mobile-menu">
+                <a href="index.html" class="block text-gray-700 hover:text-primary py-2">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-primary py-2">About</a>
+                <a href="guide.html" class="block text-primary font-semibold py-2">Guide</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-primary py-2">Contact</a>
+                <a href="/app" class="block bg-primary text-white px-6 py-3 rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Food Redistribution Guide</h1>
+                <p class="text-xl text-green-50 leading-relaxed">Step-by-step instructions for safely sharing food with your community</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- For Donors -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold mb-8 text-gray-900">For Food Donors</h2>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="bg-white border-l-4 border-primary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Prepare Your Food</h3>
+                                    <p class="text-gray-700 leading-relaxed">Ensure food is fresh, properly stored, and within safe consumption dates. Package items securely and label with preparation date if applicable.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-primary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Post on BloomNet</h3>
+                                    <p class="text-gray-700 leading-relaxed">Use our app to create a donation listing. Include food type, quantity, location, and available pickup times. Be specific about any dietary restrictions or special handling requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-primary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Coordinate Pickup</h3>
+                                    <p class="text-gray-700 leading-relaxed">Respond to requests promptly. Confirm pickup time and location. Have food ready and easily accessible for the recipient.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-primary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">4</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Complete the Exchange</h3>
+                                    <p class="text-gray-700 leading-relaxed">Meet the recipient at the agreed time. Verify the pickup in the app. Thank them for helping reduce food waste!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- For Recipients -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold mb-8 text-gray-900">For Food Recipients</h2>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="bg-white border-l-4 border-secondary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Browse Available Food</h3>
+                                    <p class="text-gray-700 leading-relaxed">Use the map view to find food donations near you. Filter by food type, distance, and quantity to find the best matches.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-secondary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Request Food</h3>
+                                    <p class="text-gray-700 leading-relaxed">Contact the donor through the platform. Confirm quantity needed and discuss pickup arrangements. Be respectful of the donor's time and location.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-secondary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Pick Up Food</h3>
+                                    <p class="text-gray-700 leading-relaxed">Arrive on time at the agreed location. Bring appropriate containers if needed. Inspect food for quality and safety before accepting.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-secondary p-6 rounded-r-xl shadow-lg">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">4</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-900">Distribute & Enjoy</h3>
+                                    <p class="text-gray-700 leading-relaxed">Distribute food to those in need promptly. Store properly if not using immediately. Mark the exchange as complete in the app.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Guidelines -->
+                <div class="bg-gradient-to-br from-accent/10 to-red-500/10 rounded-2xl p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Safety Guidelines</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-xl">✅</span>
+                            <p><strong>Food Safety:</strong> Only share food that is fresh, properly stored, and within safe consumption dates. When in doubt, don't share.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-xl">✅</span>
+                            <p><strong>Hygiene:</strong> Wash hands before handling food. Use clean containers and packaging materials.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-xl">✅</span>
+                            <p><strong>Temperature:</strong> Keep hot food hot and cold food cold. Use insulated containers for transport when necessary.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-xl">✅</span>
+                            <p><strong>Allergens:</strong> Always label food with potential allergens. Recipients should ask about ingredients if unsure.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-xl">✅</span>
+                            <p><strong>Communication:</strong> Be clear about food condition, preparation methods, and any special requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Practices -->
+                <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-8">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Best Practices</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-gray-900">For Donors</h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li>• Post food as soon as you know it's available</li>
+                                <li>• Be honest about food condition</li>
+                                <li>• Respond to requests within 24 hours</li>
+                                <li>• Be flexible with pickup times</li>
+                                <li>• Consider donating regularly</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-gray-900">For Recipients</h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li>• Only request what you can use</li>
+                                <li>• Arrive on time for pickups</li>
+                                <li>• Communicate clearly about needs</li>
+                                <li>• Show appreciation to donors</li>
+                                <li>• Report any issues promptly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900">Ready to Start?</h2>
+            <p class="text-lg text-gray-600 mb-8">Join our community and start making a difference today</p>
+            <a href="/app" class="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all inline-block">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">BloomNet</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Connecting communities to fight hunger and reduce waste.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-white transition text-sm">Home</a>
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition text-sm">About</a>
+                        <a href="guide.html" class="block text-gray-400 hover:text-white transition text-sm">Guide</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-white transition text-sm">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">info@bloomnet.org</p>
+                    <p class="text-gray-400 text-sm">Support available 24/7</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 BloomNet. Made with ❤️ for fighting hunger.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+

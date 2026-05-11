@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#2d8659', dark: '#1f5d3f', light: '#3da372' },
+                        secondary: { DEFAULT: '#f4a261', dark: '#e76f51' },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scale-in { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-in { opacity: 1 !important; transform: translateY(0) translateX(0) scale(1) !important; }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <!-- Navigation -->
+    <nav class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                        <span class="text-lg">🌱</span>
+                    </div>
+                    <a href="index.html" class="text-xl font-semibold text-primary">BloomNet</a>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="features.html" class="text-primary font-semibold">Features</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="guide.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Guide</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+                    <a href="app.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all">Get Started</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Platform Features</h1>
+                <p class="text-xl text-green-50 leading-relaxed">Comprehensive tools designed to make food sharing simple, safe, and effective</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in-left">
+                    <div>
+                        <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-8 mb-6">
+                            <span class="text-6xl">🗺️</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 text-gray-900">Live Interactive Map</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Our real-time map visualization shows all active food donations and requests in your area. 
+                            Filter by food type, distance, or organization to find exactly what you need.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Real-time updates as new donations are posted</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Distance calculation and route optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Color-coded markers for easy identification</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-right">
+                        <div class="bg-gradient-to-br from-primary/20 to-primary-light/20 rounded-2xl p-12 h-64 flex items-center justify-center">
+                            <span class="text-8xl">🗺️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in-right">
+                    <div class="order-2 md:order-1">
+                        <div class="bg-gradient-to-br from-secondary/10 to-secondary-dark/10 rounded-2xl p-12 h-64 flex items-center justify-center">
+                            <span class="text-8xl">⚡</span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 fade-in-left">
+                        <div class="bg-gradient-to-br from-secondary/10 to-secondary-dark/10 rounded-2xl p-8 mb-6">
+                            <span class="text-6xl">⚡</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 text-gray-900">Smart Matching Algorithm</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Our advanced geospatial matching engine automatically connects donors with nearby recipients. 
+                            The algorithm considers location, food type compatibility, quantity needs, and timing.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Automatic proximity-based matching</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Food type and dietary preference matching</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Priority scoring for urgent needs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in-left">
+                    <div>
+                        <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-8 mb-6">
+                            <span class="text-6xl">📅</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 text-gray-900">Pickup Scheduling System</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Coordinate pickup times efficiently with our built-in scheduling system. Queue management 
+                            ensures smooth operations and prevents conflicts.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Calendar integration for availability</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Automated reminders and notifications</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Queue management for high-demand items</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-right">
+                        <div class="bg-gradient-to-br from-primary/20 to-primary-light/20 rounded-2xl p-12 h-64 flex items-center justify-center">
+                            <span class="text-8xl">📅</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in-right">
+                    <div class="order-2 md:order-1">
+                        <div class="bg-gradient-to-br from-accent/10 to-red-500/10 rounded-2xl p-12 h-64 flex items-center justify-center">
+                            <span class="text-8xl">✅</span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 fade-in-left">
+                        <div class="bg-gradient-to-br from-accent/10 to-red-500/10 rounded-2xl p-8 mb-6">
+                            <span class="text-6xl">✅</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 text-gray-900">Safety & Verification</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Built-in verification workflows ensure food safety standards are maintained throughout 
+                            the redistribution process. Track compliance and maintain quality.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                <span>Food safety checklist and guidelines</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                <span>Hygiene compliance tracking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                <span>Quality verification system</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in-left">
+                    <div>
+                        <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-8 mb-6">
+                            <span class="text-6xl">💬</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 text-gray-900">Direct Messaging</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Communicate directly with donors or recipients through our integrated messaging system. 
+                            Coordinate details, confirm arrangements, and build community connections.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Real-time messaging between users</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Message history and notifications</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Secure and private communication</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-right">
+                        <div class="bg-gradient-to-br from-primary/20 to-primary-light/20 rounded-2xl p-12 h-64 flex items-center justify-center">
+                            <span class="text-8xl">💬</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="grid md:grid-cols-2 gap-12 items-center fade-in-right">
+                    <div class="order-2 md:order-1">
+                        <div class="bg-gradient-to-br from-secondary/10 to-secondary-dark/10 rounded-2xl p-12 h-64 flex items-center justify-center">
+                            <span class="text-8xl">📍</span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 fade-in-left">
+                        <div class="bg-gradient-to-br from-secondary/10 to-secondary-dark/10 rounded-2xl p-8 mb-6">
+                            <span class="text-6xl">📍</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 text-gray-900">Geospatial Intelligence</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Advanced location-based services optimize food distribution routes, reduce transportation 
+                            costs, and minimize environmental impact.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Route optimization for multiple pickups</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Distance and time calculations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Geofencing for location-based alerts</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900">Ready to Experience These Features?</h2>
+            <p class="text-lg text-gray-600 mb-8">Start using BloomNet today and join our growing community</p>
+            <a href="app.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all inline-block">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">BloomNet</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Connecting communities to fight hunger and reduce waste.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-white transition text-sm">Home</a>
+                        <a href="features.html" class="block text-gray-400 hover:text-white transition text-sm">Features</a>
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition text-sm">About</a>
+                        <a href="guide.html" class="block text-gray-400 hover:text-white transition text-sm">Guide</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-white transition text-sm">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">info@bloomnet.org</p>
+                    <p class="text-gray-400 text-sm">Support available 24/7</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 BloomNet. Made with ❤️ for fighting hunger.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+

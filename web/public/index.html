@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomNet — Food Sharing & Surplus Redistribution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: 'rgba(34, 197, 94)',
+                            dark: 'rgba(6, 78, 59)',
+                            light: 'rgba(34, 197, 94)'
+                        },
+                        heading: 'rgba(6, 78, 59)',
+                        secondary: {
+                            DEFAULT: '#f4a261',
+                            dark: '#e76f51'
+                        },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .animate-fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        
+        /* Scroll Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) translateX(0) scale(1) !important;
+        }
+        
+        /* Stagger animation delays */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <!-- Navigation -->
+    <nav class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                        <span class="text-lg">🌱</span>
+                    </div>
+                    <a href="index.html" class="text-xl font-semibold" style="color: rgba(6, 78, 59);">BloomNet</a>
+                    <a href="about.html" class="ml-3 text-sm text-gray-600 hover:text-primary font-medium transition-colors" title="About">About</a>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="features.html" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200">Features</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200">How It Works</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200">About</a>
+                    <a href="guide.html" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200">Guide</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200">Contact</a>
+                    <a href="partners.html" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200">Partners</a>
+                    <a href="app.html" class="text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200" style="background-color: rgba(34, 197, 94);">Get Started</a>
+                </div>
+                <button class="md:hidden text-gray-700 text-2xl" id="mobile-menu-btn">☰</button>
+            </div>
+            <div class="hidden md:hidden mt-4 space-y-2" id="mobile-menu">
+                <a href="features.html" class="block text-gray-700 hover:text-primary py-2">Features</a>
+                <a href="#how-it-works" class="block text-gray-700 hover:text-primary py-2">How It Works</a>
+                <a href="about.html" class="block text-gray-700 hover:text-primary py-2">About</a>
+                <a href="guide.html" class="block text-gray-700 hover:text-primary py-2">Guide</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-primary py-2">Contact</a>
+                <a href="partners.html" class="block text-gray-700 hover:text-primary py-2">Partners</a>
+                <a href="app.html" class="block bg-primary text-white px-6 py-3 rounded-lg text-center font-semibold">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative text-white py-12 md:py-16 overflow-hidden" style="background: linear-gradient(135deg, rgba(34, 197, 94), rgba(6, 78, 59));">
+        <div class="absolute inset-0 bg-black opacity-5"></div>
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="text-center md:text-left animate-fade-in">
+                    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">Fight Hunger, Reduce Waste</h1>
+                    <h2 class="text-xl md:text-2xl mb-6 text-green-100 font-light">Connect Communities Through Food Sharing</h2>
+                    <p class="text-lg md:text-xl mb-8 text-green-50 leading-relaxed">
+                        A community platform connecting donors, NGOs, and shelters 
+                        with geo-coordination to ensure surplus food reaches those in need.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="app.html" class="bg-white px-8 py-3.5 rounded-xl text-base font-semibold hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform" style="color: rgba(34, 197, 94);">Get Started</a>
+                        <a href="#how-it-works" class="bg-transparent border-2 border-white text-white px-8 py-3.5 rounded-xl text-base font-semibold hover:bg-white transition-all duration-300 hover:scale-105 transform" style="--hover-color: rgba(34, 197, 94);" onmouseover="this.style.color='rgba(34, 197, 94)'" onmouseout="this.style.color='white'">Learn More</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=600&fit=crop&q=80" alt="Food sharing community" class="rounded-2xl shadow-2xl object-cover w-full h-[400px]" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Capabilities (links to full Features page) -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto text-center mb-2">
+                <h3 class="text-3xl font-bold" style="color: rgba(6, 78, 59);">Featured Capabilities</h3>
+                <p class="text-gray-600 mt-3">Key platform features to get you started — click any card to view full details.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <a href="features.html" class="block bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-200">
+                    <div class="text-4xl mb-4">🗺️</div>
+                    <h4 class="font-bold mb-2" style="color: rgba(6, 78, 59);">Live Interactive Map</h4>
+                    <p class="text-gray-600 text-sm">See real-time donation and request locations across your area.</p>
+                </a>
+
+                <a href="features.html" class="block bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-200">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h4 class="font-bold mb-2" style="color: rgba(6, 78, 59);">Smart Matching</h4>
+                    <p class="text-gray-600 text-sm">Automated geospatial matching connects donors with nearby recipients.</p>
+                </a>
+
+                <a href="features.html" class="block bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-200">
+                    <div class="text-4xl mb-4">📅</div>
+                    <h4 class="font-bold mb-2" style="color: rgba(6, 78, 59);">Pickup Scheduling</h4>
+                    <p class="text-gray-600 text-sm">Coordinate pickups and reduce food waste with scheduled handoffs.</p>
+                </a>
+            </div>
+
+            <div class="text-center mt-2">
+                <a href="features.html" class="inline-block font-semibold text-green-600 hover:underline">View All Features →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="py-8 bg-green-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div class="fade-in-left">
+                    <img src="images/community-food.svg" alt="Community food sharing" class="rounded-2xl shadow-xl w-full h-64 object-cover">
+                </div>
+                <div class="fade-in-right">
+                    <h2 class="text-4xl font-bold mb-6" style="color: rgba(6, 78, 59);">Our Mission</h2>
+                    <div class="w-20 h-1 mb-6" style="background: rgba(34, 197, 94);"></div>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Hunger and waste coexist in our communities. We bridge this gap by creating 
+                        a seamless connection between food donors, NGOs, and local shelters using 
+                        geolocation-based coordination.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Together, we can ensure that surplus food reaches those who need it most, 
+                        reducing waste while fighting hunger in our communities.
+                    </p>
+                    <a href="about.html" class="inline-block text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all" style="background-color: rgba(34, 197, 94);">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Teaser (added) -->
+    <section class="py-6 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-2" style="color: rgba(6, 78, 59);">Our Story</h3>
+                    <p class="text-gray-700 mb-4">BloomNet began with a simple idea: connect surplus food with people who need it. Learn more about our mission and impact.</p>
+                    <a href="about.html" class="inline-block bg-white border-2 border-primary px-6 py-3 rounded-xl font-semibold hover:bg-green-50 transition-all" style="border-color: rgba(34, 197, 94); color: rgba(34, 197, 94);">Read Our Story →</a>
+                </div>
+                <div>
+                    <img src="images/community-food.svg" alt="Our story - community food sharing" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MVP Features -->
+    <section id="how-it-works" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold mb-4" style="color: rgba(6, 78, 59);">How It Works</h2>
+                <div class="w-24 h-1 mx-auto mb-4" style="background: rgba(34, 197, 94);"></div>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Simple steps to make a difference</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="mb-4 overflow-hidden rounded-xl bg-gradient-to-br from-green-400 to-green-600 h-40 flex items-center justify-center">
+                        <div class="text-6xl">🥗</div>
+                    </div>
+                    <div class="text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg" style="background-color: rgba(34, 197, 94);">1</div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">Offer or List Items</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Post surplus food with details about type, quantity, and availability.</p>
+                </div>
+                <div class="text-center group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=300&fit=crop&q=80" alt="View map" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg" style="background-color: rgba(34, 197, 94);">2</div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">View Nearby Options</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Our live map shows all available donations and requests in your area.</p>
+                </div>
+                <div class="text-center group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop&q=80" alt="Get matched" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg" style="background-color: rgba(34, 197, 94);">3</div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">Get Matched</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Our matching engine automatically connects you with the best nearby options.</p>
+                </div>
+                <div class="text-center group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=300&fit=crop&q=80" alt="Schedule pickup" class="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'">
+                    </div>
+                    <div class="text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg" style="background-color: rgba(34, 197, 94);">4</div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">Schedule & Coordinate</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Use our messaging system to coordinate pickup details and track exchanges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Technology & Architecture</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <h4 class="font-bold text-lg mb-3 text-gray-900">Geospatial Matching</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Advanced algorithms for location-based food matching and route optimization</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <h4 class="font-bold text-lg mb-3 text-gray-900">Queue Management</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Efficient pickup slot scheduling and queue systems for smooth operations</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <h4 class="font-bold text-lg mb-3 text-gray-900">Verification Workflows</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Built-in safety checks and compliance tracking for food quality assurance</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <h4 class="font-bold text-lg mb-3 text-gray-900">Real-time Updates</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Live synchronization of donations, requests, and matches across the platform</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section id="stats" class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-5xl font-bold mb-4" style="color: rgba(6, 78, 59);">Our Impact</h2>
+                <div class="w-24 h-1 mx-auto mb-4" style="background: rgba(34, 197, 94);"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tracking success through measurable outcomes</p>
+                <a href="/impact" class="inline-block mt-6 font-semibold hover:underline" style="color: rgba(34, 197, 94);">View Detailed Impact Report →</a>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-white rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 scale-in delay-100" style="background: linear-gradient(135deg, rgba(34, 197, 94), rgba(6, 78, 59));">
+                    <div class="text-6xl font-extrabold mb-3" id="meals-redistributed">0</div>
+                    <div class="text-lg font-medium text-green-100">Meals Redistributed</div>
+                </div>
+                <div class="bg-gradient-to-br from-secondary via-secondary-dark to-secondary-dark text-white rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 scale-in delay-200">
+                    <div class="text-6xl font-extrabold mb-3" id="avg-time">0</div>
+                    <div class="text-lg font-medium text-orange-100">Avg. Time: Offer to Pickup (hours)</div>
+                </div>
+                <div class="bg-gradient-to-br from-accent via-red-600 to-red-700 text-white rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 scale-in delay-300">
+                    <div class="text-6xl font-extrabold mb-3" id="repeat-donors">0</div>
+                    <div class="text-lg font-medium text-red-100">Repeat Donors</div>
+                </div>
+                <div class="text-white rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 scale-in delay-400" style="background: linear-gradient(135deg, rgba(34, 197, 94), rgba(6, 78, 59));">
+                    <div class="text-6xl font-extrabold mb-3" id="active-users">0</div>
+                    <div class="text-lg font-medium text-green-100">Active Users</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 text-white relative overflow-hidden" style="background: linear-gradient(135deg, rgba(34, 197, 94), rgba(6, 78, 59));">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop&q=80" alt="Join the community" class="rounded-2xl shadow-2xl w-full object-cover" onerror="this.style.display='none'">
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Ready to Make a Difference?</h2>
+                    <p class="text-lg md:text-xl mb-8 text-green-50 leading-relaxed">Join our community today and help fight hunger while reducing food waste.</p>
+                    <a href="/app" class="bg-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform inline-block" style="color: rgba(34, 197, 94);">Get Started Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">BloomNet</h3>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm">Connecting communities to fight hunger and reduce waste.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Quick Links</h4>
+                    <div class="space-y-3">
+                        <a href="app.html" class="block text-gray-400 hover:text-white transition-colors duration-200">App</a>
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition-colors duration-200">About</a>
+                        <a href="guide.html" class="block text-gray-400 hover:text-white transition-colors duration-200">Guide</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-white transition-colors duration-200">Contact</a>
+                        <a href="partners.html" class="block text-gray-400 hover:text-white transition-colors duration-200">Partners</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Contact</h4>
+                    <p class="text-gray-400 mb-2">info@bloomnet.org</p>
+                    <p class="text-gray-400">Support available 24/7</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 BloomNet. Made with ❤️ for fighting hunger.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Load stats
+        fetch('/api/stats')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to fetch stats');
+                return res.json();
+            })
+            .then(data => {
+                const mealsEl = document.getElementById('meals-redistributed');
+                const avgTimeEl = document.getElementById('avg-time');
+                const donorsEl = document.getElementById('repeat-donors');
+                const usersEl = document.getElementById('active-users');
+                
+                if (mealsEl) mealsEl.textContent = data.mealsRedistributed || 0;
+                if (avgTimeEl) avgTimeEl.textContent = data.avgTimeToPickup || 0;
+                if (donorsEl) donorsEl.textContent = data.repeatDonors || 0;
+                if (usersEl) usersEl.textContent = data.activeUsers || 0;
+            })
+            .catch(err => {
+                console.error('Error loading stats:', err);
+                // Set default values on error
+                const mealsEl = document.getElementById('meals-redistributed');
+                const avgTimeEl = document.getElementById('avg-time');
+                const donorsEl = document.getElementById('repeat-donors');
+                const usersEl = document.getElementById('active-users');
+                
+                if (mealsEl) mealsEl.textContent = '0';
+                if (avgTimeEl) avgTimeEl.textContent = '0';
+                if (donorsEl) donorsEl.textContent = '0';
+                if (usersEl) usersEl.textContent = '0';
+            });
+
+        // Reveal elements using the existing fade-in classes so content is visible
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectors = '.fade-in-up, .fade-in-left, .fade-in-right, .fade-in, .scale-in';
+            const els = Array.from(document.querySelectorAll(selectors));
+            els.forEach((el, i) => {
+                // stagger the reveal slightly for nicer effect
+                setTimeout(() => el.classList.add('animate-in'), i * 80);
+            });
+        });
+    </script>
+</body>
+</html>
+

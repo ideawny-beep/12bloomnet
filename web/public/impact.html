@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact & Statistics — BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#2d8659', dark: '#1f5d3f', light: '#3da372' },
+                        secondary: { DEFAULT: '#f4a261', dark: '#e76f51' },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scale-in { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-in { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <!-- Navigation -->
+    <nav class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                        <span class="text-lg">🌱</span>
+                    </div>
+                    <a href="index.html" class="text-xl font-semibold text-primary">BloomNet</a>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="features.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Features</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="guide.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Guide</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+                    <a href="app.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all">Get Started</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Our Impact</h1>
+                <p class="text-xl text-green-50 leading-relaxed">Measuring success through real-world outcomes and community transformation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-gradient-to-br from-primary via-primary-dark to-primary-dark text-white rounded-2xl p-8 text-center shadow-xl scale-in delay-100">
+                        <div class="text-6xl font-extrabold mb-3" id="meals-redistributed">0</div>
+                        <div class="text-lg font-medium text-green-100">Meals Redistributed</div>
+                        <p class="text-sm text-green-200 mt-2">Total meals saved from waste</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-secondary via-secondary-dark to-secondary-dark text-white rounded-2xl p-8 text-center shadow-xl scale-in delay-200">
+                        <div class="text-6xl font-extrabold mb-3" id="avg-time">0</div>
+                        <div class="text-lg font-medium text-orange-100">Avg. Time to Pickup</div>
+                        <p class="text-sm text-orange-200 mt-2">Hours from offer to pickup</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-accent via-red-600 to-red-700 text-white rounded-2xl p-8 text-center shadow-xl scale-in delay-300">
+                        <div class="text-6xl font-extrabold mb-3" id="repeat-donors">0</div>
+                        <div class="text-lg font-medium text-red-100">Repeat Donors</div>
+                        <p class="text-sm text-red-200 mt-2">Active community members</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-primary-light via-primary to-primary-dark text-white rounded-2xl p-8 text-center shadow-xl scale-in delay-400">
+                        <div class="text-6xl font-extrabold mb-3" id="active-users">0</div>
+                        <div class="text-lg font-medium text-green-100">Active Users</div>
+                        <p class="text-sm text-green-200 mt-2">Platform participants</p>
+                    </div>
+                </div>
+
+                <!-- Impact Stories -->
+                <div class="mb-16 fade-in-up">
+                    <h2 class="text-4xl font-bold mb-8 text-center text-gray-900">Success Stories</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 fade-in-up delay-100">
+                            <div class="text-4xl mb-4">🏪</div>
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Local Restaurant</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                "We've redistributed over 500 meals in the past month. BloomNet makes it so easy 
+                                to connect with local shelters and reduce our food waste."
+                            </p>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 fade-in-up delay-200">
+                            <div class="text-4xl mb-4">🏠</div>
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Community Shelter</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                "The matching system helps us find fresh food donations quickly. We've been able 
+                                to serve 200+ more meals weekly thanks to BloomNet."
+                            </p>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 fade-in-up delay-300">
+                            <div class="text-4xl mb-4">🌍</div>
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Environmental Impact</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                "By reducing food waste, we've prevented thousands of pounds of food from ending 
+                                up in landfills, significantly reducing our carbon footprint."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics Breakdown -->
+                <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-8 fade-in-up">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Key Performance Indicators</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-4 text-gray-900">Efficiency Metrics</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm text-gray-600">Average Response Time</span>
+                                        <span class="text-sm font-semibold text-primary">2.5 hours</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm text-gray-600">Match Success Rate</span>
+                                        <span class="text-sm font-semibold text-primary">92%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4 text-gray-900">Community Growth</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm text-gray-600">New Users This Month</span>
+                                        <span class="text-sm font-semibold text-secondary">+45%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-secondary h-2 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm text-gray-600">Platform Engagement</span>
+                                        <span class="text-sm font-semibold text-secondary">78%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-secondary h-2 rounded-full" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900">Be Part of the Impact</h2>
+            <p class="text-lg text-gray-600 mb-8">Join thousands making a difference in their communities</p>
+            <a href="app.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all inline-block">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">BloomNet</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Connecting communities to fight hunger and reduce waste.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-white transition text-sm">Home</a>
+                        <a href="features.html" class="block text-gray-400 hover:text-white transition text-sm">Features</a>
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition text-sm">About</a>
+                        <a href="guide.html" class="block text-gray-400 hover:text-white transition text-sm">Guide</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-white transition text-sm">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">info@bloomnet.org</p>
+                    <p class="text-gray-400 text-sm">Support available 24/7</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 BloomNet. Made with ❤️ for fighting hunger.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Load stats
+        fetch('/api/stats')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to fetch stats');
+                return res.json();
+            })
+            .then(data => {
+                const mealsEl = document.getElementById('meals-redistributed');
+                const avgTimeEl = document.getElementById('avg-time');
+                const donorsEl = document.getElementById('repeat-donors');
+                const usersEl = document.getElementById('active-users');
+                
+                if (mealsEl) mealsEl.textContent = data.mealsRedistributed || 0;
+                if (avgTimeEl) avgTimeEl.textContent = data.avgTimeToPickup || 0;
+                if (donorsEl) donorsEl.textContent = data.repeatDonors || 0;
+                if (usersEl) usersEl.textContent = data.activeUsers || 0;
+            })
+            .catch(err => {
+                console.error('Error loading stats:', err);
+            });
+    </script>
+</body>
+</html>
+

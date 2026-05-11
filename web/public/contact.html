@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: 'rgba(34, 197, 94)', dark: 'rgba(6, 78, 59)', light: 'rgba(34, 197, 94)' },
+                        heading: 'rgba(6, 78, 59)',
+                        secondary: { DEFAULT: '#f4a261', dark: '#e76f51' },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scale-in { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-in { opacity: 1 !important; transform: translateY(0) translateX(0) scale(1) !important; }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <!-- Navigation -->
+    <nav class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                        <span class="text-lg">🌱</span>
+                    </div>
+                    <a href="index.html" class="text-xl font-semibold" style="color: rgba(6, 78, 59);">BloomNet</a>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="guide.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Guide</a>
+                    <a href="contact.html" class="text-primary font-semibold">Contact</a>
+                    <a href="app.html" class="text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all" style="background-color: rgba(34, 197, 94);">Get Started</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">☰</button>
+            </div>
+            <div class="hidden md:hidden mt-4 space-y-2" id="mobile-menu">
+                <a href="index.html" class="block text-gray-700 hover:text-primary py-2">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-primary py-2">About</a>
+                <a href="guide.html" class="block text-gray-700 hover:text-primary py-2">Guide</a>
+                <a href="contact.html" class="block text-primary font-semibold py-2">Contact</a>
+                <a href="/app" class="block bg-primary text-white px-6 py-3 rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 text-white" style="background: linear-gradient(135deg, rgba(34, 197, 94), rgba(6, 78, 59));">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6 fade-in-up">Get in Touch</h1>
+                <p class="text-xl text-green-50 leading-relaxed">We're here to help. Reach out with questions, feedback, or partnership inquiries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="fade-in-left">
+                        <h2 class="text-3xl font-bold mb-6" style="color: rgba(6, 78, 59);">Send us a Message</h2>
+                        <div class="w-20 h-1 mb-6" style="background: rgba(34, 197, 94);"></div>
+                        <form class="space-y-6" id="contact-form">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-gray-700">Your Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-gray-700">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-gray-700">Subject</label>
+                                <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                                    <option>General Inquiry</option>
+                                    <option>Partnership Opportunity</option>
+                                    <option>Technical Support</option>
+                                    <option>Feedback</option>
+                                    <option>Media Inquiry</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-gray-700">Message</label>
+                                <textarea rows="5" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"></textarea>
+                            </div>
+                            <button type="submit" class="w-full text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform" style="background-color: rgba(34, 197, 94);">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="fade-in-right">
+                        <h2 class="text-3xl font-bold mb-6" style="color: rgba(6, 78, 59);">Contact Information</h2>
+                        <div class="w-20 h-1 mb-6" style="background: rgba(34, 197, 94);"></div>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-xl">
+                                    <span class="text-2xl">📧</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold mb-1 text-gray-900">Email</h3>
+                                    <p class="text-gray-600">info@bloomnet.org</p>
+                                    <p class="text-gray-600 text-sm">support@bloomnet.org</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-xl">
+                                    <span class="text-2xl">📞</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold mb-1 text-gray-900">Phone</h3>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-gray-600 text-sm">Mon-Fri, 9 AM - 6 PM EST</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-xl">
+                                    <span class="text-2xl">📍</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold mb-1 text-gray-900">Address</h3>
+                                    <p class="text-gray-600">123 Community Street</p>
+                                    <p class="text-gray-600">City, State 12345</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-6">
+                            <h3 class="font-bold mb-4 text-gray-900">Response Time</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                                We aim to respond to all inquiries within 24-48 hours. For urgent matters, 
+                                please call our support line.
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <p><strong>General Inquiries:</strong> 24-48 hours</p>
+                                <p><strong>Technical Support:</strong> 12-24 hours</p>
+                                <p><strong>Partnership:</strong> 48-72 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="mt-16 fade-in-up">
+                    <h2 class="text-3xl font-bold mb-8 text-center" style="color: rgba(6, 78, 59);">Frequently Asked Questions</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                            <h3 class="font-bold mb-2 text-gray-900">How do I get started?</h3>
+                            <p class="text-gray-600 text-sm">Simply create an account and start posting food donations or requests. Our matching system will connect you with nearby users.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                            <h3 class="font-bold mb-2 text-gray-900">Is there a fee to use BloomNet?</h3>
+                            <p class="text-gray-600 text-sm">No, BloomNet is completely free to use. We're committed to making food sharing accessible to everyone.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                            <h3 class="font-bold mb-2 text-gray-900">How do I ensure food safety?</h3>
+                            <p class="text-gray-600 text-sm">Check our comprehensive guide for food safety guidelines. Always inspect food before accepting and follow proper storage procedures.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                            <h3 class="font-bold mb-2 text-gray-900">Can businesses participate?</h3>
+                            <p class="text-gray-600 text-sm">Absolutely! Restaurants, cafes, and food businesses are welcome to donate surplus food through our platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">BloomNet</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Connecting communities to fight hunger and reduce waste.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-white transition text-sm">Home</a>
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition text-sm">About</a>
+                        <a href="guide.html" class="block text-gray-400 hover:text-white transition text-sm">Guide</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-white transition text-sm">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">info@bloomnet.org</p>
+                    <p class="text-gray-400 text-sm">Support available 24/7</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 BloomNet. Made with ❤️ for fighting hunger.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
+    <script src="js/contact.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+

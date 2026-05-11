@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomNet App — Food Sharing Platform</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2d8659',
+                            dark: '#1f5d3f',
+                            light: '#3da372'
+                        },
+                        secondary: {
+                            DEFAULT: '#f4a261',
+                            dark: '#e76f51'
+                        },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        #map { height: 100%; width: 100%; border-radius: 12px; }
+        .custom-marker { background: transparent; border: none; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <a href="index.html" class="text-lg font-semibold text-primary">BloomNet</a>
+                    </div>
+                    <nav class="flex space-x-3 items-center">
+                        <button class="nav-btn active px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 bg-gradient-to-r from-primary to-primary-light text-white shadow-lg hover:shadow-xl" data-view="map">Map</button>
+                        <button class="nav-btn px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 hover:shadow-md" data-view="donate">Donate</button>
+                        <button class="nav-btn px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 hover:shadow-md" data-view="need">Need Food</button>
+                        <a href="guide.html" class="px-4 py-2 text-sm text-gray-600 hover:text-primary transition-colors hidden md:block">Guide</a>
+                        <a href="contact.html" class="px-4 py-2 text-sm text-gray-600 hover:text-primary transition-colors hidden md:block">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-4 py-6">
+            <!-- Demo Banner -->
+            <div class="mb-6 bg-gradient-to-r from-blue-50 to-blue-100 border-2 border-blue-300 rounded-xl p-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="font-bold text-blue-900 mb-1">🎯 Live Demo Mode</h3>
+                        <p class="text-sm text-blue-800">See sample donations and matches on the map. Try posting your own food or request to test the matching system!</p>
+                    </div>
+                    <button onclick="bloomNet.loadDemoData()" class="ml-4 px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition whitespace-nowrap">Load Demo Data</button>
+                </div>
+            </div>
+
+            <!-- Map View -->
+            <section id="map-view" class="view active">
+                <div class="grid lg:grid-cols-3 gap-6 h-[calc(100vh-150px)] min-h-[600px]">
+                    <div class="lg:col-span-2 bg-white rounded-2xl shadow-xl overflow-hidden relative border border-gray-100">
+                        <div id="map" class="h-full"></div>
+                        <div class="absolute top-4 right-4 glass-effect rounded-xl shadow-xl p-4 z-[1000] border border-gray-200">
+                            <div class="space-y-3 text-sm font-medium">
+                                <div class="flex items-center space-x-2 text-gray-700">
+                                    <span class="text-lg">📍</span>
+                                    <span>Donors</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-gray-700">
+                                    <span class="text-lg">🏢</span>
+                                    <span>NGOs</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-gray-700">
+                                    <span class="text-lg">🏠</span>
+                                    <span>Shelters</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-6 overflow-y-auto border border-gray-100">
+                        <h3 class="text-2xl font-bold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent mb-6">Nearby Matches</h3>
+                        <div id="matches-list" class="space-y-4"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Donate Form View -->
+            <section id="donate-view" class="view hidden">
+                <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-10 border border-gray-100">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent mb-2">Donate Food</h2>
+                        <div class="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto"></div>
+                    </div>
+                    <form id="donate-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Your Name / Organization</label>
+                            <input type="text" id="donor-name" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Contact Number</label>
+                            <input type="tel" id="donor-phone" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Food Type</label>
+                            <select id="food-type" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                                <option value="">Select food type</option>
+                                <option value="prepared">Prepared Meals</option>
+                                <option value="fresh">Fresh Produce</option>
+                                <option value="packaged">Packaged Food</option>
+                                <option value="bakery">Bakery Items</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Quantity (servings/items)</label>
+                            <input type="number" id="food-quantity" min="1" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Available Until</label>
+                            <input type="datetime-local" id="expiry-time" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Address</label>
+                            <input type="text" id="donor-address" placeholder="Enter your address" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Additional Notes</label>
+                            <textarea id="donor-notes" rows="3" placeholder="Any special instructions or details..." class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-primary-light text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform">Post Donation</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Need Food Form View -->
+            <section id="need-view" class="view hidden">
+                <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-10 border border-gray-100">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent mb-2">Request Food</h2>
+                        <div class="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto"></div>
+                    </div>
+                    <form id="need-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">I am a</label>
+                            <select id="requester-type" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                                <option value="">Select type</option>
+                                <option value="ngo">NGO / Organization</option>
+                                <option value="shelter">Shelter / Community Center</option>
+                                <option value="individual">Individual / Family</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Name / Organization</label>
+                            <input type="text" id="requester-name" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Contact Number</label>
+                            <input type="tel" id="requester-phone" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Food Type Needed</label>
+                            <select id="needed-food" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                                <option value="">Select food type</option>
+                                <option value="any">Any Available</option>
+                                <option value="prepared">Prepared Meals</option>
+                                <option value="fresh">Fresh Produce</option>
+                                <option value="packaged">Packaged Food</option>
+                                <option value="bakery">Bakery Items</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Quantity Needed (servings/items)</label>
+                            <input type="number" id="needed-quantity" min="1" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Address</label>
+                            <input type="text" id="requester-address" placeholder="Enter your address" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Additional Notes</label>
+                            <textarea id="requester-notes" rows="3" placeholder="Any special requirements or details..." class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-primary-light text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform">Post Request</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notification Toast -->
+        <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners — BloomNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#2d8659', dark: '#1f5d3f', light: '#3da372' },
+                        secondary: { DEFAULT: '#f4a261', dark: '#e76f51' },
+                        accent: '#e76f51'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scale-in { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-in { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <!-- Navigation -->
+    <nav class="glass-effect shadow-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                        <span class="text-lg">🌱</span>
+                    </div>
+                    <a href="index.html" class="text-xl font-semibold text-primary">BloomNet</a>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="features.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Features</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="guide.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Guide</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+                    <a href="app.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all">Get Started</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Partnership Opportunities</h1>
+                <p class="text-xl text-green-50 leading-relaxed">Join forces with us to amplify our impact and reach more communities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Types -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-900">Partner With Us</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto mb-4"></div>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">We work with restaurants, businesses, NGOs, and community organizations to maximize our collective impact</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 fade-in-left">
+                        <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-xl p-6 mb-6">
+                            <span class="text-5xl">🍽️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Restaurants & Food Businesses</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Partner with us to reduce food waste while supporting your local community. 
+                            We make it easy to donate surplus food regularly.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Tax benefits for food donations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Streamlined donation process</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Community recognition and impact reports</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="text-primary font-semibold hover:underline">Contact us to partner →</a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 fade-in-right">
+                        <div class="bg-gradient-to-br from-secondary/10 to-secondary-dark/10 rounded-xl p-6 mb-6">
+                            <span class="text-5xl">🏢</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">NGOs & Non-Profits</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Integrate BloomNet into your food distribution programs. Access a network 
+                            of donors and streamline your operations.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Access to donor network</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Free platform access</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-secondary mr-2">✓</span>
+                                <span>Dedicated support and training</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="text-secondary font-semibold hover:underline">Contact us to partner →</a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 fade-in-left">
+                        <div class="bg-gradient-to-br from-accent/10 to-red-500/10 rounded-xl p-6 mb-6">
+                            <span class="text-5xl">🏛️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Government & Municipalities</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Work with us to implement food waste reduction programs in your city. 
+                            We provide the technology and expertise.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                <span>City-wide food sharing programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                <span>Data and analytics for policy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                <span>Community engagement tools</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="text-accent font-semibold hover:underline">Contact us to partner →</a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 fade-in-right">
+                        <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-xl p-6 mb-6">
+                            <span class="text-5xl">🤝</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Corporate Partners</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Align your corporate social responsibility goals with our mission. 
+                            Sponsor programs and support community initiatives.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>CSR program integration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Employee engagement opportunities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                <span>Brand visibility and recognition</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="text-primary font-semibold hover:underline">Contact us to partner →</a>
+                    </div>
+                </div>
+
+                <!-- Benefits Section -->
+                <div class="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-2xl p-8 fade-in-up">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Partnership Benefits</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-gray-900">Impact Measurement</h4>
+                            <p class="text-gray-600 text-sm">Detailed reports on meals redistributed, waste reduced, and community impact.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-gray-900">Marketing Support</h4>
+                            <p class="text-gray-600 text-sm">Co-marketing opportunities, press releases, and social media promotion.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-gray-900">Dedicated Support</h4>
+                            <p class="text-gray-600 text-sm">Dedicated account manager and priority technical support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900">Ready to Partner With Us?</h2>
+            <p class="text-lg text-gray-600 mb-8">Let's work together to create a bigger impact</p>
+            <a href="contact.html" class="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all inline-block">Contact Partnership Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-br from-primary to-primary-dark p-1.5 rounded-lg">
+                            <span class="text-lg">🌱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">BloomNet</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Connecting communities to fight hunger and reduce waste.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-white transition text-sm">Home</a>
+                        <a href="features.html" class="block text-gray-400 hover:text-white transition text-sm">Features</a>
+                        <a href="about.html" class="block text-gray-400 hover:text-white transition text-sm">About</a>
+                        <a href="guide.html" class="block text-gray-400 hover:text-white transition text-sm">Guide</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-white transition text-sm">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">info@bloomnet.org</p>
+                    <p class="text-gray-400 text-sm">Support available 24/7</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 BloomNet. Made with ❤️ for fighting hunger.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+
