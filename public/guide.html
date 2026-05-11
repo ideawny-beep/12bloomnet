@@ -3,103 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Guide - BloomNet</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Step-by-step guide to using BloomNet for food donors and recipients.">
+    <title>User Guide — BloomNet</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-green-600 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/app" class="hover:underline">App</a>
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/features" class="hover:underline">Features</a>
-                <a href="/guide" class="hover:underline font-semibold">Guide</a>
-                <a href="/contact" class="hover:underline">Contact</a>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">🌱 Bloom<span>Net</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/features">Features</a>
+                <a href="/guide" class="active">Guide</a>
+                <a href="/impact">Impact</a>
+                <a href="/partners">Partners</a>
+                <a href="/contact">Contact</a>
+                <a href="/app" class="nav-cta">Launch App</a>
             </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-12">
-        <h2 class="text-4xl font-bold mb-6">How to Use BloomNet</h2>
-        
-        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-            <h3 class="text-2xl font-semibold mb-4 text-green-600">For Food Donors</h3>
-            <ol class="list-decimal list-inside space-y-4 text-gray-700">
-                <li>
-                    <strong>Navigate to the App</strong> - Click on "App" in the navigation menu
-                </li>
-                <li>
-                    <strong>Enable Location</strong> - Allow your browser to access your location when prompted
-                </li>
-                <li>
-                    <strong>Fill Out the Donation Form</strong> - Provide:
-                    <ul class="list-disc list-inside ml-6 mt-2">
-                        <li>Your organization or name</li>
-                        <li>Description of the food</li>
-                        <li>Quantity (number of meals/servings)</li>
-                        <li>Contact phone number</li>
-                        <li>How long the food will be available</li>
+    <header class="hero hero-page">
+        <div class="hero-content">
+            <h1>How to Use <span class="gradient-text">BloomNet</span></h1>
+            <p>A simple guide to get you started — whether you're donating or requesting food.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container" style="max-width:800px;">
+                <div class="section-title">
+                    <h2 style="color:var(--emerald-600);">🍽️ For Food Donors</h2>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Navigate to the App</h4>
+                        <p>Click on "Launch App" in the navigation menu to open the food sharing dashboard.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Enable Location</h4>
+                        <p>Allow your browser to access your location when prompted. This helps us match you with nearby recipients.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Fill Out the Donation Form</h4>
+                        <p>Provide the following details:</p>
+                        <ul>
+                            <li>Your organization or name</li>
+                            <li>Description of the food</li>
+                            <li>Quantity (number of meals/servings)</li>
+                            <li>Contact phone number</li>
+                            <li>How long the food will be available</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4>Post Your Donation</h4>
+                        <p>Click "Post Donation" to make it visible on the map for nearby recipients.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h4>Wait for Contact</h4>
+                        <p>Recipients will see your donation on the live map and contact you directly to arrange pickup.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container" style="max-width:800px;">
+                <div class="section-title">
+                    <h2 style="color:var(--orange-600);">🏠 For Food Recipients</h2>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));">1</div>
+                    <div>
+                        <h4>Access the App</h4>
+                        <p>Navigate to the application page from the main menu.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));">2</div>
+                    <div>
+                        <h4>Enable Location</h4>
+                        <p>Share your location to see nearby donations on the map.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));">3</div>
+                    <div>
+                        <h4>Browse the Map</h4>
+                        <p>View all available donations shown as green markers on the interactive map.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));">4</div>
+                    <div>
+                        <h4>Post a Request (Optional)</h4>
+                        <p>Fill out the request form with your organization name, type, number of people, and contact info.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));">5</div>
+                    <div>
+                        <h4>Contact Donors</h4>
+                        <p>Click on map markers to see donor details and reach out directly.</p>
+                    </div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-number" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));">6</div>
+                    <div>
+                        <h4>Coordinate Pickup</h4>
+                        <p>Arrange a convenient pickup time with the donor via phone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container" style="max-width:800px;">
+                <div class="card fade-up">
+                    <h3 style="margin-bottom:16px;">💡 Tips for Success</h3>
+                    <ul style="padding-left:20px;">
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Always enable location services for accurate matching</li>
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Provide accurate contact information</li>
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Be responsive when contacted</li>
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Coordinate pickup times clearly</li>
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Follow food safety guidelines</li>
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Update the status of your donation/request when completed</li>
+                        <li style="list-style:disc;color:var(--gray-600);padding:8px 0;">Check the map regularly for new opportunities</li>
                     </ul>
-                </li>
-                <li>
-                    <strong>Post Your Donation</strong> - Click "Post Donation" to make it visible on the map
-                </li>
-                <li>
-                    <strong>Wait for Contact</strong> - Recipients will see your donation and contact you directly
-                </li>
-            </ol>
-        </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-            <h3 class="text-2xl font-semibold mb-4 text-orange-600">For Food Recipients (Shelters & NGOs)</h3>
-            <ol class="list-decimal list-inside space-y-4 text-gray-700">
-                <li>
-                    <strong>Access the App</strong> - Navigate to the application page
-                </li>
-                <li>
-                    <strong>Enable Location</strong> - Share your location to see nearby donations
-                </li>
-                <li>
-                    <strong>Browse the Map</strong> - View all available donations shown as green markers
-                </li>
-                <li>
-                    <strong>Post a Request</strong> (Optional) - Fill out the request form with:
-                    <ul class="list-disc list-inside ml-6 mt-2">
-                        <li>Your organization name</li>
-                        <li>Type of organization</li>
-                        <li>Number of people you need to feed</li>
-                        <li>Contact information</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Contact Donors</strong> - Click on map markers to see donor details and contact them
-                </li>
-                <li>
-                    <strong>Coordinate Pickup</strong> - Arrange a convenient pickup time with the donor
-                </li>
-            </ol>
-        </div>
-
-        <div class="bg-white p-8 rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold mb-4">Tips for Success</h3>
-            <ul class="list-disc list-inside space-y-3 text-gray-700">
-                <li>Always enable location services for accurate matching</li>
-                <li>Provide accurate contact information</li>
-                <li>Be responsive when contacted</li>
-                <li>Coordinate pickup times clearly</li>
-                <li>Follow food safety guidelines</li>
-                <li>Update the status of your donation/request when completed</li>
-                <li>Check the map regularly for new opportunities</li>
-            </ul>
-        </div>
-    </div>
-
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-brand">🌱 BloomNet</div><p class="footer-desc">Fighting hunger and reducing food waste through technology and community collaboration.</p></div>
+                <div><h4>Platform</h4><div class="footer-links"><a href="/app">Launch App</a><a href="/features">Features</a><a href="/guide">User Guide</a><a href="/impact">Our Impact</a></div></div>
+                <div><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/partners">Partners</a><a href="/contact">Contact</a></div></div>
+                <div><h4>Connect</h4><div class="footer-links"><a href="#">GitHub</a><a href="#">Twitter</a><a href="#">Discord</a></div></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 BloomNet. Open Source — MIT License.</p></div>
         </div>
     </footer>
+    <script src="/shared.js"></script>
 </body>
 </html>

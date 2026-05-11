@@ -7,13 +7,14 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const message = document.getElementById('message').value;
     
     const messageDiv = document.getElementById('formMessage');
-    messageDiv.className = 'mt-4 p-4 bg-green-100 text-green-700 rounded';
+    messageDiv.style.display = 'block';
+    messageDiv.style.background = 'var(--emerald-50)';
+    messageDiv.style.color = 'var(--emerald-700)';
     messageDiv.textContent = 'Thank you for your message! We will get back to you soon.';
-    messageDiv.classList.remove('hidden');
     
     this.reset();
     
     setTimeout(() => {
-        messageDiv.classList.add('hidden');
+        messageDiv.style.display = 'none';
     }, 5000);
 });

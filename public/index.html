@@ -3,99 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloomNet - Food Sharing & Surplus Redistribution</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <meta name="description" content="BloomNet connects food donors with shelters and NGOs through smart geolocation matching. Fight hunger, reduce waste.">
+    <title>BloomNet — Food Sharing & Surplus Redistribution</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-green-600 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/app" class="hover:underline">App</a>
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/features" class="hover:underline">Features</a>
-                <a href="/guide" class="hover:underline">Guide</a>
-                <a href="/impact" class="hover:underline">Impact</a>
-                <a href="/partners" class="hover:underline">Partners</a>
-                <a href="/contact" class="hover:underline">Contact</a>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">🌱 Bloom<span>Net</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="active">Home</a>
+                <a href="/about">About</a>
+                <a href="/features">Features</a>
+                <a href="/guide">Guide</a>
+                <a href="/impact">Impact</a>
+                <a href="/partners">Partners</a>
+                <a href="/contact">Contact</a>
+                <a href="/app" class="nav-cta">Launch App</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-5xl font-bold mb-4">Fight Hunger, Reduce Waste</h2>
-            <p class="text-xl mb-8">Connecting food donors with those in need through smart geolocation matching</p>
-            <a href="/app" class="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block">
-                Get Started
-            </a>
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Fight Hunger,<br><span class="gradient-text">Reduce Waste</span></h1>
+            <p>Connecting food donors with those in need through smart geolocation matching. Every meal shared is a step toward a better world.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="/app" class="btn btn-white pulse-glow">🚀 Get Started</a>
+                <a href="/about" class="btn btn-outline">Learn More →</a>
+            </div>
         </div>
     </header>
 
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-12">How It Works</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-4xl mb-4">🍽️</div>
-                    <h4 class="text-xl font-semibold mb-2">1. Share Food</h4>
-                    <p class="text-gray-600">Post available surplus food with location and details</p>
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Three simple steps to start sharing food and making a difference</p>
+            </div>
+            <div class="grid-3">
+                <div class="card fade-up" style="text-align:center;">
+                    <div class="card-icon" style="margin:0 auto 20px;background:var(--emerald-50);">🍽️</div>
+                    <h3>1. Share Food</h3>
+                    <p>Post available surplus food with your location and details. It takes less than a minute.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-4xl mb-4">🗺️</div>
-                    <h4 class="text-xl font-semibold mb-2">2. Smart Matching</h4>
-                    <p class="text-gray-600">Automatically matched with nearby shelters and NGOs</p>
+                <div class="card fade-up" style="text-align:center;">
+                    <div class="card-icon" style="margin:0 auto 20px;background:#eff6ff;">🗺️</div>
+                    <h3>2. Smart Matching</h3>
+                    <p>Our algorithm automatically matches you with nearby shelters, NGOs, and people in need.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-4xl mb-4">🚚</div>
-                    <h4 class="text-xl font-semibold mb-2">3. Coordinate Pickup</h4>
-                    <p class="text-gray-600">Schedule pickup times and track deliveries</p>
+                <div class="card fade-up" style="text-align:center;">
+                    <div class="card-icon" style="margin:0 auto 20px;background:#fefce8;">🚚</div>
+                    <h3>3. Coordinate Pickup</h3>
+                    <p>Schedule pickup times, communicate directly, and track the delivery in real-time.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-green-50 py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-8">Key Features</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-semibold text-lg mb-2">Live Map</h4>
-                    <p class="text-sm text-gray-600">Real-time visualization of donations and requests</p>
+    <!-- Key Features -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Features</h2>
+                <p>Everything you need for efficient food redistribution</p>
+            </div>
+            <div class="grid-4">
+                <div class="card fade-up">
+                    <h3>📍 Live Map</h3>
+                    <p>Real-time visualization of donations and requests near you</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-semibold text-lg mb-2">Geolocation</h4>
-                    <p class="text-sm text-gray-600">Automatic location detection and matching</p>
+                <div class="card fade-up">
+                    <h3>🎯 Geolocation</h3>
+                    <p>Automatic location detection and distance-based matching</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-semibold text-lg mb-2">Messaging</h4>
-                    <p class="text-sm text-gray-600">Direct communication between parties</p>
+                <div class="card fade-up">
+                    <h3>💬 Messaging</h3>
+                    <p>Direct communication between donors and recipients</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-semibold text-lg mb-2">Analytics</h4>
-                    <p class="text-sm text-gray-600">Track impact and success metrics</p>
+                <div class="card fade-up">
+                    <h3>📊 Analytics</h3>
+                    <p>Track your impact with real-time success metrics</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-4">Ready to Make a Difference?</h3>
-            <p class="text-xl text-gray-600 mb-8">Join our community of donors and recipients today</p>
-            <a href="/app" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition inline-block">
-                Launch App
-            </a>
+    <!-- CTA -->
+    <section class="section" style="background:var(--gradient-hero);">
+        <div class="container" style="text-align:center;">
+            <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:#fff;margin-bottom:16px;">Ready to Make a Difference?</h2>
+            <p style="font-size:1.1rem;color:rgba(255,255,255,0.8);margin-bottom:32px;">Join our growing community of donors and recipients today</p>
+            <a href="/app" class="btn btn-white pulse-glow">🌱 Launch the App</a>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
-            <p class="mt-2 text-sm text-gray-400">Open Source Project - MIT License</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">🌱 BloomNet</div>
+                    <p class="footer-desc">Fighting hunger and reducing food waste through technology and community collaboration.</p>
+                </div>
+                <div>
+                    <h4>Platform</h4>
+                    <div class="footer-links">
+                        <a href="/app">Launch App</a>
+                        <a href="/features">Features</a>
+                        <a href="/guide">User Guide</a>
+                        <a href="/impact">Our Impact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="/about">About Us</a>
+                        <a href="/partners">Partners</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="footer-links">
+                        <a href="#">GitHub</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BloomNet. Open Source — MIT License.</p>
+            </div>
         </div>
     </footer>
+
+    <script src="/shared.js"></script>
 </body>
 </html>

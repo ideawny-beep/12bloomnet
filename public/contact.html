@@ -3,98 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - BloomNet</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Get in touch with BloomNet for support, partnerships, or collaboration opportunities.">
+    <title>Contact — BloomNet</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-green-600 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/app" class="hover:underline">App</a>
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/features" class="hover:underline">Features</a>
-                <a href="/guide" class="hover:underline">Guide</a>
-                <a href="/contact" class="hover:underline font-semibold">Contact</a>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">🌱 Bloom<span>Net</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/features">Features</a>
+                <a href="/guide">Guide</a>
+                <a href="/impact">Impact</a>
+                <a href="/partners">Partners</a>
+                <a href="/contact" class="active">Contact</a>
+                <a href="/app" class="nav-cta">Launch App</a>
             </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-12">
-        <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
-                <form id="contactForm">
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Name</label>
-                        <input type="text" id="name" class="w-full border rounded px-3 py-2" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Email</label>
-                        <input type="email" id="email" class="w-full border rounded px-3 py-2" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Subject</label>
-                        <input type="text" id="subject" class="w-full border rounded px-3 py-2" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Message</label>
-                        <textarea id="message" class="w-full border rounded px-3 py-2" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded font-semibold hover:bg-green-700 transition">
-                        Send Message
-                    </button>
-                </form>
-                <div id="formMessage" class="mt-4 hidden"></div>
-            </div>
-
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold mb-4">Other Ways to Reach Us</h3>
-                
-                <div class="mb-6">
-                    <h4 class="font-semibold text-lg mb-2">Support</h4>
-                    <p class="text-gray-700">
-                        For technical support or questions about using the platform, 
-                        please fill out the contact form.
-                    </p>
-                </div>
-
-                <div class="mb-6">
-                    <h4 class="font-semibold text-lg mb-2">Partnerships</h4>
-                    <p class="text-gray-700">
-                        Interested in partnering with BloomNet? We'd love to hear from you 
-                        about collaboration opportunities.
-                    </p>
-                </div>
-
-                <div class="mb-6">
-                    <h4 class="font-semibold text-lg mb-2">Contribute</h4>
-                    <p class="text-gray-700">
-                        BloomNet is an open-source project. Visit our GitHub repository 
-                        to contribute code or report issues.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold text-lg mb-2">Community</h4>
-                    <p class="text-gray-700">
-                        Join our community of donors, recipients, and volunteers working 
-                        together to fight hunger and reduce food waste.
-                    </p>
-                </div>
-            </div>
+    <header class="hero hero-page">
+        <div class="hero-content">
+            <h1>Contact <span class="gradient-text">Us</span></h1>
+            <p>Have questions, feedback, or want to collaborate? We'd love to hear from you.</p>
         </div>
-    </div>
+    </header>
 
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="grid-2 gap-32">
+                    <!-- Contact Form -->
+                    <div class="card fade-up">
+                        <h3 style="margin-bottom:24px;">Get in Touch</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" id="name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" id="subject" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea id="message" class="form-textarea" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                        <div id="formMessage" style="display:none;margin-top:16px;padding:12px;border-radius:8px;text-align:center;font-weight:500;"></div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <div class="card fade-up mb-24">
+                            <div class="card-icon">📧</div>
+                            <h3>Support</h3>
+                            <p>For technical support or questions about using the platform, please fill out the contact form.</p>
+                        </div>
+                        <div class="card fade-up mb-24">
+                            <div class="card-icon" style="background:#fff7ed;">🤝</div>
+                            <h3>Partnerships</h3>
+                            <p>Interested in partnering with BloomNet? We'd love to hear from you about collaboration opportunities.</p>
+                        </div>
+                        <div class="card fade-up mb-24">
+                            <div class="card-icon" style="background:#eff6ff;">💻</div>
+                            <h3>Contribute</h3>
+                            <p>BloomNet is an open-source project. Visit our GitHub repository to contribute code or report issues.</p>
+                        </div>
+                        <div class="card fade-up">
+                            <div class="card-icon" style="background:#f3e8ff;">🌐</div>
+                            <h3>Community</h3>
+                            <p>Join our community of donors, recipients, and volunteers working together to fight hunger.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-brand">🌱 BloomNet</div><p class="footer-desc">Fighting hunger and reducing food waste through technology and community collaboration.</p></div>
+                <div><h4>Platform</h4><div class="footer-links"><a href="/app">Launch App</a><a href="/features">Features</a><a href="/guide">User Guide</a><a href="/impact">Our Impact</a></div></div>
+                <div><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/partners">Partners</a><a href="/contact">Contact</a></div></div>
+                <div><h4>Connect</h4><div class="footer-links"><a href="#">GitHub</a><a href="#">Twitter</a><a href="#">Discord</a></div></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 BloomNet. Open Source — MIT License.</p></div>
         </div>
     </footer>
-
+    <script src="/shared.js"></script>
     <script src="/js/contact.js"></script>
 </body>
 </html>

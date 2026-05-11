@@ -3,106 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features - BloomNet</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Explore BloomNet's features: live map, smart matching, geolocation, messaging, analytics, and more.">
+    <title>Features — BloomNet</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-green-600 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/app" class="hover:underline">App</a>
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/features" class="hover:underline font-semibold">Features</a>
-                <a href="/guide" class="hover:underline">Guide</a>
-                <a href="/contact" class="hover:underline">Contact</a>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">🌱 Bloom<span>Net</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/features" class="active">Features</a>
+                <a href="/guide">Guide</a>
+                <a href="/impact">Impact</a>
+                <a href="/partners">Partners</a>
+                <a href="/contact">Contact</a>
+                <a href="/app" class="nav-cta">Launch App</a>
             </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-12">
-        <h2 class="text-4xl font-bold mb-6">Platform Features</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">🗺️</div>
-                <h3 class="text-2xl font-semibold mb-3">Live Map</h3>
-                <p class="text-gray-700">
-                    Real-time visualization of all food donations and requests on an interactive map. 
-                    See exactly where food is available and where it's needed most.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">🎯</div>
-                <h3 class="text-2xl font-semibold mb-3">Smart Matching</h3>
-                <p class="text-gray-700">
-                    Automated geospatial matching connects donors with nearby shelters based on location, 
-                    ensuring quick and efficient food redistribution.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">📍</div>
-                <h3 class="text-2xl font-semibold mb-3">Geolocation</h3>
-                <p class="text-gray-700">
-                    Automatic location detection using browser geolocation API and Nominatim geocoding 
-                    for accurate positioning and distance calculations.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">📅</div>
-                <h3 class="text-2xl font-semibold mb-3">Pickup Scheduling</h3>
-                <p class="text-gray-700">
-                    Coordinate pickup times efficiently with integrated scheduling and queue management. 
-                    Track pickup status in real-time.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">💬</div>
-                <h3 class="text-2xl font-semibold mb-3">Messaging System</h3>
-                <p class="text-gray-700">
-                    Direct communication between donors and recipients to coordinate details, 
-                    ask questions, and confirm arrangements.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">📊</div>
-                <h3 class="text-2xl font-semibold mb-3">Analytics & Stats</h3>
-                <p class="text-gray-700">
-                    Track platform impact with metrics including meals redistributed, average pickup time, 
-                    repeat donors, and active users.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">🔄</div>
-                <h3 class="text-2xl font-semibold mb-3">Real-time Updates</h3>
-                <p class="text-gray-700">
-                    Live synchronization across the platform ensures you always see the latest 
-                    donations and requests as they're posted.
-                </p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="text-4xl mb-4">✅</div>
-                <h3 class="text-2xl font-semibold mb-3">Safety Checks</h3>
-                <p class="text-gray-700">
-                    Built-in verification workflows and hygiene checks to ensure food safety 
-                    and quality for all recipients.
-                </p>
-            </div>
+    <header class="hero hero-page">
+        <div class="hero-content">
+            <h1>Platform <span class="gradient-text">Features</span></h1>
+            <p>Powerful tools designed to make food redistribution effortless and efficient.</p>
         </div>
-    </div>
+    </header>
 
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="grid-2 gap-32">
+                    <div class="card fade-up">
+                        <div class="card-icon">🗺️</div>
+                        <h3>Live Map</h3>
+                        <p>Real-time visualization of all food donations and requests on an interactive map. See exactly where food is available and where it's needed most.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#fef3c7;">🎯</div>
+                        <h3>Smart Matching</h3>
+                        <p>Automated geospatial matching connects donors with nearby shelters based on location, ensuring quick and efficient food redistribution.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#eff6ff;">📍</div>
+                        <h3>Geolocation</h3>
+                        <p>Automatic location detection using browser geolocation API and Nominatim geocoding for accurate positioning and distance calculations.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#fce7f3;">📅</div>
+                        <h3>Pickup Scheduling</h3>
+                        <p>Coordinate pickup times efficiently with integrated scheduling and queue management. Track pickup status in real-time.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#e0e7ff;">💬</div>
+                        <h3>Messaging System</h3>
+                        <p>Direct communication between donors and recipients to coordinate details, ask questions, and confirm arrangements.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#f3e8ff;">📊</div>
+                        <h3>Analytics & Stats</h3>
+                        <p>Track platform impact with metrics including meals redistributed, average pickup time, repeat donors, and active users.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#ecfdf5;">🔄</div>
+                        <h3>Real-time Updates</h3>
+                        <p>Live synchronization across the platform ensures you always see the latest donations and requests as they're posted.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#fef2f2;">✅</div>
+                        <h3>Safety Checks</h3>
+                        <p>Built-in verification workflows and hygiene checks to ensure food safety and quality for all recipients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background:var(--gradient-hero);">
+            <div class="container" style="text-align:center;">
+                <h2 style="font-size:2rem;font-weight:800;color:#fff;margin-bottom:12px;">See It In Action</h2>
+                <p style="color:rgba(255,255,255,0.8);margin-bottom:28px;">Try BloomNet now and experience all these features firsthand</p>
+                <a href="/app" class="btn btn-white">🚀 Launch the App</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><div class="footer-brand">🌱 BloomNet</div><p class="footer-desc">Fighting hunger and reducing food waste through technology and community collaboration.</p></div>
+                <div><h4>Platform</h4><div class="footer-links"><a href="/app">Launch App</a><a href="/features">Features</a><a href="/guide">User Guide</a><a href="/impact">Our Impact</a></div></div>
+                <div><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/partners">Partners</a><a href="/contact">Contact</a></div></div>
+                <div><h4>Connect</h4><div class="footer-links"><a href="#">GitHub</a><a href="#">Twitter</a><a href="#">Discord</a></div></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 BloomNet. Open Source — MIT License.</p></div>
         </div>
     </footer>
+    <script src="/shared.js"></script>
 </body>
 </html>

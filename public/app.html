@@ -3,142 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloomNet - Food Sharing App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Share surplus food or request donations in your area with BloomNet's live map and smart matching.">
+    <title>App — BloomNet</title>
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <style>
-        #map { height: 500px; }
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            color: white;
-            font-weight: 500;
-            z-index: 9999;
-            animation: slideIn 0.3s ease-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateX(400px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        .toast.success { background-color: #10b981; }
-        .toast.error { background-color: #ef4444; }
-    </style>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-green-600 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/app" class="hover:underline font-semibold">App</a>
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/guide" class="hover:underline">Guide</a>
-                <a href="/contact" class="hover:underline">Contact</a>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">🌱 Bloom<span>Net</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/features">Features</a>
+                <a href="/guide">Guide</a>
+                <a href="/impact">Impact</a>
+                <a href="/partners">Partners</a>
+                <a href="/contact">Contact</a>
+                <a href="/app" class="nav-cta active">Launch App</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-8">
-        <div class="mb-8">
-            <h2 class="text-3xl font-bold mb-2">Live Food Sharing Map</h2>
-            <p class="text-gray-600">Share surplus food or request donations in your area</p>
+    <header class="hero hero-page">
+        <div class="hero-content">
+            <h1>Live Food <span class="gradient-text">Sharing Map</span></h1>
+            <p>Share surplus food or request donations in your area. See everything on the live map.</p>
         </div>
+    </header>
 
-        <div id="map" class="rounded-lg shadow-lg mb-8"></div>
+    <main class="section" style="padding-top:40px;">
+        <div class="container">
 
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-bold mb-4 text-green-600">🍽️ Donate Food</h3>
-                <form id="donationForm">
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Organization/Name</label>
-                        <input type="text" id="donorName" class="w-full border rounded px-3 py-2" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Food Description</label>
-                        <textarea id="foodDescription" class="w-full border rounded px-3 py-2" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Quantity (servings/meals)</label>
-                        <input type="number" id="quantity" class="w-full border rounded px-3 py-2" min="1" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Phone</label>
-                        <input type="tel" id="donorPhone" class="w-full border rounded px-3 py-2" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Pickup Available Until</label>
-                        <input type="datetime-local" id="availableUntil" class="w-full border rounded px-3 py-2" required>
-                    </div>
-                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded font-semibold hover:bg-green-700 transition">
-                        Post Donation
-                    </button>
-                </form>
+            <!-- Map -->
+            <div class="fade-up mb-32">
+                <div id="map"></div>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-bold mb-4 text-orange-600">🏠 Request Food</h3>
-                <form id="requestForm">
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Organization/Shelter Name</label>
-                        <input type="text" id="requesterName" class="w-full border rounded px-3 py-2" required>
+            <!-- Forms -->
+            <div class="grid-2 gap-32 mb-48">
+                <!-- Donate -->
+                <div class="card fade-up">
+                    <h3 style="color:var(--emerald-600);margin-bottom:20px;">🍽️ Donate Food</h3>
+                    <form id="donationForm">
+                        <div class="form-group">
+                            <label class="form-label">Organization / Name</label>
+                            <input type="text" id="donorName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Food Description</label>
+                            <textarea id="foodDescription" class="form-textarea" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Quantity (servings / meals)</label>
+                            <input type="number" id="quantity" class="form-input" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="donorPhone" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pickup Available Until</label>
+                            <input type="datetime-local" id="availableUntil" class="form-input" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Post Donation</button>
+                    </form>
+                </div>
+
+                <!-- Request -->
+                <div class="card fade-up">
+                    <h3 style="color:var(--orange-600);margin-bottom:20px;">🏠 Request Food</h3>
+                    <form id="requestForm">
+                        <div class="form-group">
+                            <label class="form-label">Organization / Shelter Name</label>
+                            <input type="text" id="requesterName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Type of Organization</label>
+                            <select id="orgType" class="form-select" required>
+                                <option value="">Select type...</option>
+                                <option value="ngo">NGO</option>
+                                <option value="shelter">Shelter</option>
+                                <option value="community">Community Center</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Number of People to Feed</label>
+                            <input type="number" id="peopleCount" class="form-input" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="requesterPhone" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Additional Notes</label>
+                            <textarea id="notes" class="form-textarea" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-orange btn-block">Post Request</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="card fade-up">
+                <h3 style="margin-bottom:24px;">📊 Platform Statistics</h3>
+                <div class="grid-4">
+                    <div class="stat-card stat-green">
+                        <div class="stat-number" id="statMeals">0</div>
+                        <div class="stat-label">Meals Redistributed</div>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Type of Organization</label>
-                        <select id="orgType" class="w-full border rounded px-3 py-2" required>
-                            <option value="">Select type...</option>
-                            <option value="ngo">NGO</option>
-                            <option value="shelter">Shelter</option>
-                            <option value="community">Community Center</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <div class="stat-card stat-blue">
+                        <div class="stat-number" id="statTime">0</div>
+                        <div class="stat-label">Avg Hours to Pickup</div>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Number of People to Feed</label>
-                        <input type="number" id="peopleCount" class="w-full border rounded px-3 py-2" min="1" required>
+                    <div class="stat-card stat-purple">
+                        <div class="stat-number" id="statDonors">0</div>
+                        <div class="stat-label">Repeat Donors</div>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Phone</label>
-                        <input type="tel" id="requesterPhone" class="w-full border rounded px-3 py-2" required>
+                    <div class="stat-card stat-orange">
+                        <div class="stat-number" id="statUsers">0</div>
+                        <div class="stat-label">Active Users</div>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Additional Notes</label>
-                        <textarea id="notes" class="w-full border rounded px-3 py-2" rows="2"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer" style="margin-top:60px;">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">🌱 BloomNet</div>
+                    <p class="footer-desc">Fighting hunger and reducing food waste through technology and community collaboration.</p>
+                </div>
+                <div>
+                    <h4>Platform</h4>
+                    <div class="footer-links">
+                        <a href="/app">Launch App</a>
+                        <a href="/features">Features</a>
+                        <a href="/guide">User Guide</a>
+                        <a href="/impact">Our Impact</a>
                     </div>
-                    <button type="submit" class="w-full bg-orange-600 text-white py-2 rounded font-semibold hover:bg-orange-700 transition">
-                        Post Request
-                    </button>
-                </form>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="/about">About Us</a>
+                        <a href="/partners">Partners</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="footer-links">
+                        <a href="#">GitHub</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BloomNet. Open Source — MIT License.</p>
             </div>
         </div>
+    </footer>
 
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-bold mb-4">📊 Platform Statistics</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-green-600" id="statMeals">0</div>
-                    <div class="text-sm text-gray-600">Meals Redistributed</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-600" id="statTime">0</div>
-                    <div class="text-sm text-gray-600">Avg Hours to Pickup</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-purple-600" id="statDonors">0</div>
-                    <div class="text-sm text-gray-600">Repeat Donors</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-orange-600" id="statUsers">0</div>
-                    <div class="text-sm text-gray-600">Active Users</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <script src="/shared.js"></script>
     <script src="/app.js"></script>
 </body>
 </html>

@@ -3,83 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About BloomNet</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Learn about BloomNet's mission to fight hunger and reduce food waste through technology.">
+    <title>About — BloomNet</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-green-600 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🌱 BloomNet</h1>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/app" class="hover:underline">App</a>
-                <a href="/about" class="hover:underline font-semibold">About</a>
-                <a href="/features" class="hover:underline">Features</a>
-                <a href="/guide" class="hover:underline">Guide</a>
-                <a href="/contact" class="hover:underline">Contact</a>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">🌱 Bloom<span>Net</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/about" class="active">About</a>
+                <a href="/features">Features</a>
+                <a href="/guide">Guide</a>
+                <a href="/impact">Impact</a>
+                <a href="/partners">Partners</a>
+                <a href="/contact">Contact</a>
+                <a href="/app" class="nav-cta">Launch App</a>
             </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-12">
-        <h2 class="text-4xl font-bold mb-6">About BloomNet</h2>
-        
-        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-            <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
-            <p class="text-gray-700 mb-4">
-                BloomNet is dedicated to fighting hunger and reducing food waste by connecting food donors 
-                with organizations and shelters that serve those in need. We believe that no food should go 
-                to waste while people go hungry.
-            </p>
-            <p class="text-gray-700">
-                Through innovative geolocation technology and smart matching algorithms, we make it easy 
-                for restaurants, grocery stores, and individuals to share surplus food with local NGOs, 
-                shelters, and community organizations.
-            </p>
+    <header class="hero hero-page">
+        <div class="hero-content">
+            <h1>About <span class="gradient-text">BloomNet</span></h1>
+            <p>Building a world where no food goes to waste while anyone goes hungry.</p>
         </div>
+    </header>
 
-        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-            <h3 class="text-2xl font-semibold mb-4">How We Help</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="font-semibold text-lg mb-2 text-green-600">For Donors</h4>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Easy posting of surplus food</li>
-                        <li>Automatic matching with nearby recipients</li>
-                        <li>Flexible pickup scheduling</li>
-                        <li>Track your impact and contributions</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-2 text-orange-600">For Recipients</h4>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Access to local food donations</li>
-                        <li>Real-time notifications of nearby food</li>
-                        <li>Direct communication with donors</li>
-                        <li>Coordinate pickups efficiently</li>
-                    </ul>
+    <main>
+        <!-- Mission -->
+        <section class="section">
+            <div class="container">
+                <div class="grid-2 gap-32">
+                    <div class="card fade-up">
+                        <div class="card-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>BloomNet is dedicated to fighting hunger and reducing food waste by connecting food donors with organizations and shelters that serve those in need. We believe that no food should go to waste while people go hungry.</p>
+                    </div>
+                    <div class="card fade-up">
+                        <div class="card-icon" style="background:#eff6ff;">💡</div>
+                        <h3>Our Vision</h3>
+                        <p>Through innovative geolocation technology and smart matching algorithms, we make it easy for restaurants, grocery stores, and individuals to share surplus food with local NGOs, shelters, and community organizations.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="bg-white p-8 rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold mb-4">Our Impact</h3>
-            <p class="text-gray-700 mb-4">
-                Since our launch, BloomNet has facilitated thousands of food donations, helping to feed 
-                communities while reducing food waste. Every donation makes a difference in someone's life.
-            </p>
-            <p class="text-gray-700">
-                Join us in building a world where surplus food reaches those who need it most, creating 
-                stronger, more sustainable communities.
-            </p>
-        </div>
-    </div>
+        <!-- How We Help -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How We Help</h2>
+                    <p>Bridging the gap between surplus and need</p>
+                </div>
+                <div class="grid-2 gap-32">
+                    <div class="card fade-up">
+                        <h3 style="color:var(--emerald-600);">For Donors</h3>
+                        <ul style="margin-top:16px;padding-left:20px;">
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Easy posting of surplus food</li>
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Automatic matching with nearby recipients</li>
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Flexible pickup scheduling</li>
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Track your impact and contributions</li>
+                        </ul>
+                    </div>
+                    <div class="card fade-up">
+                        <h3 style="color:var(--orange-600);">For Recipients</h3>
+                        <ul style="margin-top:16px;padding-left:20px;">
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Access to local food donations</li>
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Real-time notifications of nearby food</li>
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Direct communication with donors</li>
+                            <li style="list-style:disc;color:var(--gray-600);padding:6px 0;">Coordinate pickups efficiently</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 BloomNet. Fighting hunger and reducing food waste worldwide.</p>
-            <p class="mt-2 text-sm text-gray-400">Open Source Project - MIT License</p>
+        <!-- Impact -->
+        <section class="section">
+            <div class="container">
+                <div class="card fade-up" style="text-align:center;max-width:700px;margin:0 auto;">
+                    <div class="card-icon" style="margin:0 auto 20px;background:var(--emerald-50);">🌍</div>
+                    <h3>Our Impact</h3>
+                    <p style="margin-bottom:16px;">Since our launch, BloomNet has facilitated thousands of food donations, helping to feed communities while reducing food waste. Every donation makes a difference in someone's life.</p>
+                    <p>Join us in building a world where surplus food reaches those who need it most, creating stronger, more sustainable communities.</p>
+                    <a href="/app" class="btn btn-primary" style="margin-top:24px;">Start Making a Difference</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">🌱 BloomNet</div>
+                    <p class="footer-desc">Fighting hunger and reducing food waste through technology and community collaboration.</p>
+                </div>
+                <div><h4>Platform</h4><div class="footer-links"><a href="/app">Launch App</a><a href="/features">Features</a><a href="/guide">User Guide</a><a href="/impact">Our Impact</a></div></div>
+                <div><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/partners">Partners</a><a href="/contact">Contact</a></div></div>
+                <div><h4>Connect</h4><div class="footer-links"><a href="#">GitHub</a><a href="#">Twitter</a><a href="#">Discord</a></div></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 BloomNet. Open Source — MIT License.</p></div>
         </div>
     </footer>
+    <script src="/shared.js"></script>
 </body>
 </html>
