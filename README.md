@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node-%3E%3D14-brightgreen.svg)](https://nodejs.org/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ideawny-beep/12BloomNet)](https://github.com/ideawny-beep/12BloomNet/commits/main)
+[![CI](https://github.com/ideawny-beep/12BloomNet/actions/workflows/ci.yml/badge.svg)](https://github.com/ideawny-beep/12BloomNet/actions/workflows/ci.yml)
 
 A community food exchange web application connecting donors, NGOs, and local shelters using geolocation-based coordination.
 
