@@ -1,5 +1,9 @@
 # BloomNet — Food Sharing & Surplus Redistribution
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node-%3E%3D14-brightgreen.svg)](https://nodejs.org/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ideawny-beep/12BloomNet)](https://github.com/ideawny-beep/12BloomNet/commits/main)
+
 A community food exchange web application connecting donors, NGOs, and local shelters using geolocation-based coordination.
 
 ## 🌟 Features
@@ -38,8 +42,10 @@ npm start
 
 3. **Open in browser:**
 ```
-http://localhost:3000
+http://localhost:5000
 ```
+
+> Tip: The server port is configurable via `PORT`. Example: `PORT=4000 npm start`
 
 ### Development Mode (with auto-reload)
 ```bash
@@ -50,21 +56,32 @@ npm run dev
 
 ```
 bloomnet/
-├── server.js              # Express backend server
+├── .gitattributes         # Line ending and text normalization
+├── .gitignore             # Files and folders excluded from Git
+├── NETLIFY_DEPLOYMENT.md  # Netlify deployment notes
+├── netlify.toml           # Netlify configuration
 ├── package.json           # Dependencies and scripts
-├── public/
-│   ├── index.html        # Homepage
-│   ├── about.html        # About page
-│   ├── app.html          # Main application page
-│   ├── app.js            # Frontend application logic
-│   ├── features.html     # Features page
-│   ├── guide.html        # Usage guide
-│   ├── contact.html      # Contact page
-│   ├── impact.html       # Impact metrics page
-│   ├── partners.html     # Partners page
-│   ├── js/contact.js     # Contact form handler
-│   └── images/           # Static images (SVG)
-└── README.md
+├── package-lock.json      # Exact dependency tree
+├── README.md              # Project documentation
+├── server.js              # Express backend server
+├── public/                # Root web app frontend
+│   ├── index.html         # Homepage
+│   ├── about.html         # About page
+│   ├── app.html           # Main application page
+│   ├── app.js             # Frontend application logic
+│   ├── features.html      # Features page
+│   ├── guide.html         # Usage guide
+│   ├── contact.html       # Contact page
+│   ├── impact.html        # Impact metrics page
+│   ├── partners.html      # Partners page
+│   ├── js/contact.js      # Contact form handler
+│   ├── shared.js          # Shared site utilities
+│   └── images/            # Static images (SVG)
+└── web/                   # Alternative web deployment or legacy app copy
+    ├── README.md
+    ├── package.json
+    ├── server.js
+    └── public/
 ```
 
 ## 🎯 API Endpoints
@@ -138,6 +155,13 @@ The platform tracks:
 
 This is an open-source project. Contributions are welcome!
 
+### Maintenance and updates
+
+- Keep dependencies up to date with `npm audit fix` and review breaking changes before upgrading.
+- Keep the README aligned with the app by verifying the port and the deployed frontend path.
+- Remove the `web/` folder if it is no longer used or clearly document it as an alternate deployment target.
+- Add tests and linting as the project evolves.
+
 ## 📝 License
 
 MIT License - feel free to use this project for your community food sharing initiatives.
@@ -149,4 +173,3 @@ BloomNet is designed to fight hunger and reduce food waste in communities worldw
 ---
 
 **Note**: This is currently using in-memory storage. For production use, integrate with a proper database (MongoDB, PostgreSQL, etc.).
-you should respect

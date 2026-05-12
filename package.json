@@ -13,8 +13,16 @@
     "community",
     "geolocation"
   ],
-  "author": "",
+  "author": "BloomNet Community",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ideawny-beep/12BloomNet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ideawny-beep/12BloomNet/issues"
+  },
+  "homepage": "https://github.com/ideawny-beep/12BloomNet#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
